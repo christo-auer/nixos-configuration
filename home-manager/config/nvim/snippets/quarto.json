@@ -1,0 +1,28 @@
+{
+  "Solution block": {
+    "prefix": "sol",
+    "body": [
+      "::: {.content-hidden unless-meta=\"show-solution\"}",
+      "**Solution:**",
+      "${1:$TM_SELECTED_TEXT}",
+      ":::",
+      "$2"
+    ],
+    "description": "Solution block (hidden unless meta)"
+  },
+  "Bash code block": {
+    "prefix": "B",
+    "body": [
+      "```bash",
+      "${1:$TM_SELECTED_TEXT}",
+      "```",
+      "$2"
+    ],
+    "description": "Bash code block"
+  },
+  "Hyperlink": {
+    "prefix": "hr",
+    "body": "[${1:$TM_SELECTED_TEXT}](${2})${3}",
+    "description": "Hyperlink"
+  }
+}

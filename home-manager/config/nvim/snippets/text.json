@@ -1,0 +1,21 @@
+{
+  "Leistungsnachweis": {
+    "prefix": "ln",
+    "body": "Sie haben vier der sechs Aufgaben erfolgreich bearbeitet und erhalten damit sicher den Leistungsnachweis. Natürlich können Sie weiterhin Ihre Lösungen über Moodle abgeben.",
+    "description": "Leistungsnachweis message"
+  },
+  "Hyperlink": {
+    "prefix": "hr",
+    "body": "[${1:text}](${2:url})",
+    "description": "Hyperlink"
+  },
+  "Liebe Teilnehmer": {
+    "prefix": "lt",
+    "body": [
+      "Liebe Teilnehmerinnen und Teilnehmer!",
+      "",
+      ""
+    ],
+    "description": "Greeting to participants"
+  }
+}

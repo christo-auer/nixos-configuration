@@ -1,0 +1,122 @@
+" vim: ft=vim
+
+set vicmd=nvim
+
+set syscalls
+
+set trash
+
+set history=100
+set nofollowlinks
+set fastrun
+set sortnumbers
+set undolevels=100
+set vimhelp
+set norunexec
+
+set timefmt=%m/%d\ %H:%M
+set wildmenu
+set wildstyle=popup
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+set ignorecase
+set smartcase
+set nohlsearch
+set incsearch
+set scrolloff=4
+set slowfs=curlftpfs
+set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set confirm-=delete
+
+colorscheme base16
+
+let $PATH = expand($PATH) . ":" . expand($HOME) . "/.local/bin"
+
+mark t ~/temp/
+mark d ~/Downloads/
+mark w ~/Documents/workspace/
+mark W ~/Documents/work/
+mark h ~/
+mark g /run/user/1000/gvfs/
+
+" filetype *.zip
+"   \ {Extract into directory and remove}  unzip %"c -d $(basename %"c .zip) && rm %"c,
+"   \ {Extract here and remove} unzip %"c && rm %"c,
+"   \ {Extract into directory and keep} unzip %"c -d $(basename %"c .zip),
+"   \ {Extract here and keep} unzip %"c
+
+" view contents of archive files on opening them
+filetype *.7z,*.bz2,*.cab,*.cpio,*.deb,*.gz,
+        \*.msi,*.pkg,*.rar,*.tar,*.tgz,*.xz,*.zip
+        \ als %f | less
+" silently extract selected archives in background
+command extract aunpack -e %"f &>/dev/null &
+" map extraction command
+
+filetype *.html,*.xhtml,*.htm
+  \ {View in Firefox} firefox %"c %i &,
+  \ {View in w3m} w3m %"c
+
+filetype *.svg
+  \ {Edit in Inkscape} ~/.config/vifm/scripts/exec-and-hide-vifm.sh inkscape %"c %i &,
+
+filetype *.jpg,*.jpeg,*.png
+  \ {view with vimiv} ~/.config/vifm/scripts/exec-and-hide-vifm.sh vimiv %"c %i &,
+  \ {edit with gimp} ~/.config/vifm/scripts/exec-and-hide-vifm.sh gimp %"c %i &
+
+filetype *.pdf
+   \ {view with zathura} ~/.config/vifm/scripts/exec-and-hide-vifm.sh zathura %"c %i &,
+   \ {view with pympress} ~/.config/vifm/scripts/exec-and-hide-vifm.sh pympress %"c %i &,
+   \ {view with evince} ~/.config/vifm/scripts/exec-and-hide-vifm.sh evince %"c %i &,
+   \ {print} lp %"c %i &
+
+filetype *.txt,*.log
+  \ nvim %"c
+
+filetype * {xdg open} ~/.config/vifm/scripts/exec-and-hide-vifm.sh xdg-open %c 2>&1 > /dev/null &
+
+command! zip if [ -n "%a" ]; then
+           \     zip -r '%a.zip' %"f;
+           \ fi
+
+command! tgz if [ -n "%a" ]; then
+           \     tar -cvzf '%a.tar.gz' %"f;
+           \ fi
+
+command! topdf if [ -n "%a" ]; then
+           \     rsvg-convert -f pdf -o '%a.pdf' %"f;
+           \     rm %"f;
+           \ fi
+
+command! send2remarkable ~/.config/vifm/scripts/pdf2remarkable.sh -r %"f;
+
+command! totrans magick convert %"f +level-colors "#393939","white" -transparent white %"f;
+
+command! fzflocate : set noquickview
+                  \| let $fzf_pick = term('locate $home | fzf --height 10 2>/dev/tty')
+                  \| if $fzf_pick != ''
+                  \|     execute 'goto' fnameescape($FZF_PICK)
+                  \| endif
+command! FZFfind : set noquickview
+                \| let $FZF_PICK = term('find | fzf --height 10 2>/dev/tty')
+                \| if $FZF_PICK != ''
+                \|     execute 'goto' fnameescape($FZF_PICK)
+                \| endif
+
+
+map gf :FZFfind<CR>
+map gl :FZFlocate<CR>
+map gs :sync<CR>
+map go :file<CR>
+map gm :move<CR>
+map gc :copy<CR>
+map ge :edit<CR>
+map gr :!%d/%c &<CR>
+map gR :!%d/%c %i &<CR>
+map gx :extract<CR>
+map gt :!~/.config/vifm/scripts/exec-and-hide-vifm.sh foot --working-directory %d -e %i<CR>
+map gv :!~/.config/vifm/scripts/exec-and-hide-vifm.sh foot --working-directory %d -e nvim %"c %i<CR>
+map L :sync %c<CR>
+nmap o :view<CR>
+
+source ~/.config/vifm/favicons.vifm
+source ~/.config/vifm/vifmimg.vifm

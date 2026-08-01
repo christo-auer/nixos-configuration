@@ -1,0 +1,74 @@
+{
+  "Arrange Act Assert": {
+    "prefix": "aaa",
+    "body": [
+      "// Arrange",
+      "// Act",
+      "// Assert"
+    ],
+    "description": "Arrange Act Assert"
+  },
+  "AC Comment": {
+    "prefix": "a",
+    "body": "// AC: ",
+    "description": "AC comment"
+  },
+  "Example Method": {
+    "prefix": "em",
+    "body": [
+      "// snippet: $2",
+      "public static ${1:void} ${2:example}() {",
+      "  $TM_SELECTED_TEXT",
+      "}",
+      "// snippet: /$2"
+    ],
+    "description": "Example Method"
+  },
+  "Example Method Inline": {
+    "prefix": "ei",
+    "body": [
+      "public static ${1:void} ${2:example}() {",
+      "  // snippet: $2",
+      "  // gradle run${2/\\w+\\s*/\\u$0/}",
+      "  $TM_SELECTED_TEXT",
+      "  // snippet: /$2",
+      "}",
+      "",
+      "task(run${2/\\w+\\s*/\\u$0/}, dependsOn: 'classes'){",
+      "  group = chapter",
+      "  doLast{",
+      "    ${3:classname}.$2();",
+      "  }",
+      "}"
+    ],
+    "description": "Example Method Inline"
+  },
+  "Surround with TODO": {
+    "prefix": "stodo",
+    "body": [
+      "// TODO",
+      "$TM_SELECTED_TEXT",
+      "// insert code here"
+    ],
+    "description": "Surround with TODO"
+  },
+  "LaTeX Code Snippet": {
+    "prefix": "sn",
+    "body": [
+      "// snippet: ${1:name}",
+      "$TM_SELECTED_TEXT",
+      "// snippet: /$1"
+    ],
+    "description": "LaTeX Code Snippet"
+  },
+  "LaTeX Inline Code": {
+    "prefix": "il",
+    "body": "*@${1:$TM_SELECTED_TEXT}@*",
+    "description": "LaTeX Inline Code"
+  },
+  "LaTeX Inline Alert": {
+    "prefix": "ILA",
+    "body": "*@\\ILA{${1:$TM_SELECTED_TEXT}}@*",
+    "description": "LaTeX Inline Alert"
+  }
+}

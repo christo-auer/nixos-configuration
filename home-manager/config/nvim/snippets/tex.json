@@ -1,0 +1,330 @@
+{
+  "href": {
+    "prefix": "hr",
+    "body": "\\href{${1:url}}{${2:$TM_SELECTED_TEXT}}",
+    "description": "href"
+  },
+  "Alert": {
+    "prefix": "a",
+    "body": "\\A{${1:$TM_SELECTED_TEXT}}${2}",
+    "description": "Alert"
+  },
+  "Emph": {
+    "prefix": "e",
+    "body": "\\emph{${1:$TM_SELECTED_TEXT}}${2}",
+    "description": "Emph"
+  },
+  "Frame": {
+    "prefix": "f",
+    "body": [
+      "\\begin{frame}{$1}",
+      "  ${2:$TM_SELECTED_TEXT}",
+      "\\end{frame}"
+    ],
+    "description": "Frame"
+  },
+  "Begin/End environment": {
+    "prefix": "Begin",
+    "body": [
+      "\\begin{${1:environment}}",
+      "  ${2:$TM_SELECTED_TEXT}",
+      "\\end{$1}"
+    ],
+    "description": "begin/end environment"
+  },
+  "imagelayout": {
+    "prefix": "il",
+    "body": [
+      "\\begin{imagelayout}{${1}}",
+      "  ${2:$TM_SELECTED_TEXT}",
+      "\\end{imagelayout}"
+    ],
+    "description": "imagelayout"
+  },
+  "Visible": {
+    "prefix": "v",
+    "body": "\\visible<${2:+-}>{${1:$TM_SELECTED_TEXT}}",
+    "description": "Visible"
+  },
+  "Visible (multiline)": {
+    "prefix": "V",
+    "body": [
+      "\\visible<${2:+-}>{%",
+      "  ${1:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "Visible (multiline)"
+  },
+  "Only": {
+    "prefix": "o",
+    "body": "\\only<${2:+-}>{${1:$TM_SELECTED_TEXT}}",
+    "description": "Only"
+  },
+  "Only (multiline)": {
+    "prefix": "O",
+    "body": [
+      "\\only<${2:+-}>{%",
+      "  ${1:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "Only (multiline)"
+  },
+  "On Slide": {
+    "prefix": "os",
+    "body": "\\onslide<${2:+-}>{${1:$TM_SELECTED_TEXT}}",
+    "description": "On Slide"
+  },
+  "On Slide (multiline)": {
+    "prefix": "OS",
+    "body": [
+      "\\onslide<${2:+-}>{%",
+      "  ${1:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "On Slide (multiline)"
+  },
+  "Frame with image layout": {
+    "prefix": "fi",
+    "body": [
+      "\\begin{frame}{$1}",
+      "  \\begin{imagelayout}{$2}",
+      "    ${3:$TM_SELECTED_TEXT}",
+      "  \\end{imagelayout}",
+      "\\end{frame}"
+    ],
+    "description": "Frame with image layout"
+  },
+  "Small Lstlisting": {
+    "prefix": "small",
+    "body": "[basicstyle=\\Small]",
+    "description": "Small Lstlisting"
+  },
+  "itemize": {
+    "prefix": "i",
+    "body": [
+      "\\begin{itemize}",
+      "  \\item ${1:$TM_SELECTED_TEXT}",
+      "\\end{itemize}"
+    ],
+    "description": "itemize"
+  },
+  "Presentation itemize": {
+    "prefix": "pi",
+    "body": [
+      "\\begin{itemize}[<+->]",
+      "  \\item ${1:$TM_SELECTED_TEXT}",
+      "\\end{itemize}"
+    ],
+    "description": "Presentation itemize"
+  },
+  "Presentation TikZImage": {
+    "prefix": "pz",
+    "body": [
+      "\\begin{center}",
+      "  \\begin{tikzpicture}",
+      "    ${0}",
+      "  \\end{tikzpicture}",
+      "\\end{center}"
+    ],
+    "description": "Presentation TikZImage"
+  },
+  "pic": {
+    "prefix": "pic",
+    "body": "\\pic at (0,0) {bimage={${1} width {0.${2:8}\\textwidth} label {\\cite{${3}}}}};",
+    "description": "pic"
+  },
+  "Presentation Table": {
+    "prefix": "pt",
+    "body": [
+      "\\begin{center}",
+      "  \\begin{tabular}{${1:LLL}}",
+      "    ${2}",
+      "  \\end{tabular}",
+      "\\end{center}"
+    ],
+    "description": "Presentation Table"
+  },
+  "Java Code": {
+    "prefix": "j",
+    "body": "\\J+${1:$TM_SELECTED_TEXT}+$2",
+    "description": "Java Code"
+  },
+  "Java Code for Verbatim": {
+    "prefix": "J",
+    "body": "\\JavaV{${1:$TM_SELECTED_TEXT}}$2",
+    "description": "Java Code for Verbatim"
+  },
+  "C# Code": {
+    "prefix": "cs",
+    "body": "\\CS+${1:$TM_SELECTED_TEXT}+$2",
+    "description": "C# Code"
+  },
+  "C# Code for Verbatim": {
+    "prefix": "CS",
+    "body": "\\CSV{${1:$TM_SELECTED_TEXT}}$2",
+    "description": "C# Code for Verbatim"
+  },
+  "Java Inline Code": {
+    "prefix": "jic",
+    "body": [
+      "\\begin{javainlinecode}",
+      "  ${1:$TM_SELECTED_TEXT}",
+      "\\end{javainlinecode}"
+    ],
+    "description": "Java Inline Code"
+  },
+  "C# Inline Code": {
+    "prefix": "csic",
+    "body": [
+      "\\begin{csinlinecode}",
+      "  ${1:$TM_SELECTED_TEXT}",
+      "\\end{csinlinecode}"
+    ],
+    "description": "C# Inline Code"
+  },
+  "Console Output": {
+    "prefix": "co",
+    "body": [
+      "\\begin{consoleoutput}",
+      "  ${1:$TM_SELECTED_TEXT}",
+      "\\end{consoleoutput}"
+    ],
+    "description": "Console Output"
+  },
+  "Java Snippet": {
+    "prefix": "js",
+    "body": "\\JavaSnippet{$1}{$2.java}",
+    "description": "Java Snippet"
+  },
+  "Columns": {
+    "prefix": "col",
+    "body": [
+      "\\begin{columns}",
+      "  \\column{${1:0.5}\\textwidth}",
+      "  ${2:$TM_SELECTED_TEXT}",
+      "  \\column{${3:0.5}\\textwidth}",
+      "$0",
+      "\\end{columns}"
+    ],
+    "description": "Columns (set both widths manually)"
+  },
+  "Lstlisting inline": {
+    "prefix": "il",
+    "body": "*@${1:$TM_SELECTED_TEXT}@*$2",
+    "description": "Lstlisting inline"
+  },
+  "Lstlisting inline Alert": {
+    "prefix": "ILA",
+    "body": "*@\\ILA{${1:$TM_SELECTED_TEXT}}@*",
+    "description": "Lstlisting inline Alert"
+  },
+  "FEHLER in lstlisting": {
+    "prefix": "F",
+    "body": "*@\\FEHLER@*",
+    "description": "FEHLER in lstlisting"
+  },
+  "German quotes": {
+    "prefix": "\"",
+    "body": "\"`${1:$TM_SELECTED_TEXT}\"'$2",
+    "description": "German quotes"
+  },
+  "Note": {
+    "prefix": "note",
+    "body": [
+      "\\note{%",
+      "  \\begin{itemize}",
+      "    \\item ${1:$TM_SELECTED_TEXT}",
+      "  \\end{itemize}",
+      "}"
+    ],
+    "description": "Note"
+  },
+  "Dots": {
+    "prefix": "....",
+    "body": "\\ldots ",
+    "description": "Dots (ldots)"
+  },
+  "Rightarrow": {
+    "prefix": "-->",
+    "body": "$\\rightarrow$",
+    "description": "Rightarrow"
+  },
+  "to": {
+    "prefix": "_>",
+    "body": "\\to ",
+    "description": "to"
+  },
+  "Java API Reference": {
+    "prefix": "jr",
+    "body": "\\def\\\\${1}{\\JR{java/${2}}{$1}}",
+    "description": "Java API Reference"
+  },
+  "Question": {
+    "prefix": "q",
+    "body": [
+      "\\begin{question}{${1:title}}",
+      "  ${0:$TM_SELECTED_TEXT}",
+      "\\end{question}"
+    ],
+    "description": "Question"
+  },
+  "Sub-Question": {
+    "prefix": "sq",
+    "body": [
+      "\\begin{subquestion}",
+      "  ${0:$TM_SELECTED_TEXT}",
+      "\\end{subquestion}"
+    ],
+    "description": "Sub-Question"
+  },
+  "Answer Area": {
+    "prefix": "an",
+    "body": "\\AnswerArea{${1:size}}{${2:score}}",
+    "description": "Answer Area"
+  },
+  "Answer Area Fill": {
+    "prefix": "anf",
+    "body": "\\AnswerAreaFill{${1:score}}",
+    "description": "Answer Area Fill"
+  },
+  "Plain tikz environment": {
+    "prefix": "z",
+    "body": [
+      "\\begin{tikzpicture}",
+      "  ${0:$TM_SELECTED_TEXT}",
+      "\\end{tikzpicture}"
+    ],
+    "description": "Plain tikz environment without options"
+  },
+  "Plain tikz environment with options": {
+    "prefix": "Z",
+    "body": [
+      "\\begin{tikzpicture}[${1:options}]",
+      "  ${0:$TM_SELECTED_TEXT}",
+      "\\end{tikzpicture}"
+    ],
+    "description": "Plain tikz environment with options"
+  },
+  "Image with border (tikz)": {
+    "prefix": "tbi",
+    "body": "\\tikz\\pic{bimage={${1:image} width {${2:ratio}\\textwidth} label {${3:label}}}};",
+    "description": "Image with border (with tikz)"
+  },
+  "Image with border": {
+    "prefix": "bi",
+    "body": "\\pic at (0,0) {bimage={${1:image} width {${2:ratio}\\textwidth} label {${3:label}}}};",
+    "description": "Image with border"
+  },
+  "Definition": {
+    "prefix": "zdef",
+    "body": [
+      "\\tikz\\pic{definition={{%",
+      "  ${1:$TM_SELECTED_TEXT}",
+      "  }",
+      "  width {0.8\\textwidth}",
+      "  label {${2}}",
+      "}};"
+    ],
+    "description": "Definition"
+  }
+}

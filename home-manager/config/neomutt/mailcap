@@ -1,0 +1,5 @@
+text/html; firefox %s 2>&1 > /dev/null 
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+application/*; xdg-open %s 2> /dev/null 1> /dev/null &
+image/*; xdg-open %s 2> /dev/null 1> /dev/null &
+text/*; xdg-open %s 2> /dev/null 1> /dev/null &

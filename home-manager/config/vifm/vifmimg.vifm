@@ -1,0 +1,3 @@
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+        \ ~/.config/vifm/scripts/sixel-preview.sh %c %pw %ph %pd
+
