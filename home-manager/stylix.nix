@@ -78,7 +78,7 @@
   systemd.user.services.awww-cycle-wallpaper =
   let 
   cycle-time = "300";
-  cycle-awww-wallpaper = pkgs.writeShellScript "cycle-awww-wallpaper.sh" ''
+  cycle-awww-wallpaper = pkgs.writeScript "cycle-awww-wallpaper.sh" ''
   #!/usr/bin/env zsh
   while true; do
     for wallpaper in ${config.home.homeDirectory}/Pictures/wallpapers/*.{jpg,jpeg,png}; do

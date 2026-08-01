@@ -4,14 +4,14 @@
   programs.waybar = 
   let 
   mail-config = private-values.mail;
-  mail-indicator = pkgs.writeShellScript "mail-indicator.sh" ''
+  mail-indicator = pkgs.writeScript "mail-indicator.sh" ''
     #!/usr/bin/env zsh
 
     function query_unread() {
       curl -u $1:$2 -n imaps://$3 -X 'STATUS INBOX (UNSEEN)' --silent | tail -n 1 
     }
 
-    private=$(query_unread ${mail-config.private.config.userName} $(pass private/mail) ${mail-config.private.config.imap.host} | grep 'STATUS INBOX' | sed -e 's/\* STATUS INBOX (UNSEEN \(.*\))/\1/; s/\r//g')
+    private=$(query_unread ${mail-config.private.config.userName} $(pass private/mail | head -n1) ${mail-config.private.config.imap.host} | grep 'STATUS INBOX' | sed -e 's/\* STATUS INBOX (UNSEEN \(.*\))/\1/; s/\r//g')
 
     haw=$(query_unread ${mail-config.haw.config.userName} $(pass haw/mail | head -n1) ${mail-config.haw.config.imap.host} | grep 'STATUS INBOX' | sed -e 's/\* STATUS INBOX (UNSEEN \([0-9]\+\)\w*)/\1/; s/\r//g; s/ //g')
 

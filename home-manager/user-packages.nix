@@ -31,7 +31,6 @@ in {
     httm
     hunspell hunspellDicts.de-de hunspellDicts.en-us
     hyphen hyphenDicts.de-de hyphenDicts.en-us
-    jq
     imagemagick
     inkscape
     isync

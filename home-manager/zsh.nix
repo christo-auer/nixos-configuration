@@ -1,5 +1,12 @@
 { config, pkgs, lib, ... } : {
-  programs.zsh = {
+
+  programs.zsh  =
+  let haw-vpn-script =  pkgs.writeScriptBin "haw-vpn" ''
+    #!/usr/bin/env nix-shell
+    #!nix-shell -i zsh -p openfortivpn 
+    sudo openfortivpn vpn1.haw-landshut.de -u $(pass haw/mail | tail -n1 | cut -d: -f2) -p $(pass haw/mail | head -n1)
+    ''; in
+  {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
 
@@ -8,7 +15,7 @@
 
     shellAliases = {
       ngit   ="nvim -c Git";
-      haw-vpn="nix-shell -p openfortivpn --command \"sudo openfortivpn vpn1.haw-landshut.de -u $(pass haw/mail | tail -n1 | cut -d: -f2) -p $(pass haw/mail | head -n1)\"";
+      haw-vpn="${haw-vpn-script}";
       ls     ="exa";
       nix-edit = "cd ${config.home.homeDirectory}/Documents/workspace/nixos-configuration; nvim flake.nix home-manager/home.nix nixos/configuration.nix";
       n = "nix-shell -p \${1} --command zsh";

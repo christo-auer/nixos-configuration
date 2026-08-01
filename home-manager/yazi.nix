@@ -3,7 +3,7 @@
   home.packages = [pkgs.trash-cli];
 
   programs.yazi =
-  let open-and-hide = pkgs.writeShellScript "open-and-hide.sh" ''
+  let open-and-hide = pkgs.writeScript "open-and-hide.sh" ''
   #!/usr/bin/env zsh
 
   mmsg dispatch toggle_scratchpad 1>/dev/null

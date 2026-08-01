@@ -511,11 +511,11 @@
     "private-config-data": {
       "flake": false,
       "locked": {
-        "lastModified": 1785573403,
-        "narHash": "sha256-5YFAq1+D++ej68agMo6NI/m1+thwdD8QAGKwSTHO0yE=",
+        "lastModified": 1785600732,
+        "narHash": "sha256-4E1+SLkl5y82uTukhutv0M9t1HX3sAYPb8f93BjCPhg=",
         "ref": "refs/heads/main",
-        "rev": "cdfeb30c2182db1a388d552babd2803508d93c2a",
-        "revCount": 13,
+        "rev": "1d1e13646158d7c92227f00bbd95bf9c2d6a3ca5",
+        "revCount": 14,
         "type": "git",
         "url": "ssh://chris@nagi-remote/home/chris/git/private-config-data.git"
       },

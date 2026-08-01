@@ -128,14 +128,15 @@ let
   chooser    = "${fuzzel-dir}/choose";
   buerste    = "${fuzzel-dir}/fuzzel-buerste.sh";
 
-  spawn-and-reset-keymode = pkgs.writeShellScript "spawn-and-reset-keymode.sh" ''
+  spawn-and-reset-keymode = pkgs.writeScript "spawn-and-reset-keymode.sh" ''
     #!/usr/bin/env sh
     mmsg dispatch "setkeymode,default"
     eval $@
   '';
 
-  resize-and-center = pkgs.writeShellScript "resize-and-center.sh" ''
-    #!/usr/bin/env zsh
+  resize-and-center = pkgs.writeScript "resize-and-center.sh" ''
+    #! /usr/bin/env nix-shell
+    #! nix-shell -i zsh -p jq
 
     monitor=$(mmsg get last_open_surface | jq -r .monitor)
 

@@ -3,7 +3,7 @@
   
 
   programs.eilmeldung = 
-  let pipe-through-opencode = pkgs.writeShellScript "pipe-through-opencode" ''
+  let pipe-through-opencode = pkgs.writeScript "pipe-through-opencode" ''
     #!/usr/bin/env sh
 
     if [ $# -gt 0 ]; then
