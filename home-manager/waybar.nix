@@ -24,12 +24,12 @@
 
     package = (pkgs.waybar.override { cavaSupport = false; }).overrideAttrs (oldAttrs: {
         pname = "waybar";
-        version = "0.15.0-unstable-2026-07-21";
+        version = "git";
         src = pkgs.fetchFromGitHub {
         owner = "Alexays";
         repo = "Waybar";
-        rev = "30610d3b68f109e950d924bc7d9c42b8cbbc5df8";  
-        hash = "sha256-pSbVf9mMWazkaTgNM0X4pfkIS/6AzoAfs7YTS27udOE=";
+        rev = "d44a27af1023b5c68f6f61435ba550bf03f69938";  
+        hash = "sha256-qquPn4ibBnc7gA4peGgseP+lKGRq58UPxsMTSrdUT8Q=";
         };
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dmango=true" "-Dwwan=disabled" ];
         doInstallCheck = false;
@@ -56,14 +56,14 @@
         reload_on_style_change = "true";
         layer = "bottom";
         position = "bottom";
-        height = 25;
+        # height = 26;
         spacing = 0;
         margin-bottom = 0;
         margin-left = 0;
         margin-right = 0;
         ipc = true;
-        modules-left = [ "mango/workspaces" "mango/keymode" "mango/window" ];
-        modules-right = [ "custom/mail" "custom/power-profile" "battery" "cpu" "tray" "clock" ];
+        modules-left = [ "mango/workspaces" "mango/window" "mango/keymode" ];
+        modules-right = [ "custom/mail" "battery" "cpu" "tray" "clock" ];
 
         "clock" = {
           format = "{:%d. %h %H:%M}";
@@ -110,7 +110,6 @@
       * {
         border: none;
         border-radius: 0;
-        min-height: 0;
         margin: 0;
         padding: 0;
         font-family: "Figtree Light", monospace;
@@ -124,36 +123,27 @@
       }
 
       /* ---- workspaces: flat, accent text + thin underline ---- */
-      #workspaces {
-        padding-left: 6px;
-      }
-
       #workspaces button {
         padding: 0 8px;
-        color: @base03;               /* empty/dim */
-        border-bottom: 2px solid transparent;
-      }
-
-      #workspaces button.visible {    /* occupied, not focused */
         color: @base05;
       }
 
-      #workspaces button.active,
-      #workspaces button.focused {    /* currently viewed */
+
+      #workspaces button.current_output {    /* currently viewed */
         color: @base0D;
-        border-bottom: 2px solid @base0D;
       }
 
       #workspaces button.urgent,
       #workspaces button.overview {
         color: @base08;
-        border-bottom: 2px solid @base08;
       }
 
-      #workspaces button:hover {
-        color: @base0C;
-        background: transparent;
-        border-bottom: 2px solid @base0C;
+      #workspaces button.active {    /* currently viewed */
+        color: @base0D;
+      }
+
+      #workspaces button.empty {
+        color: @base03;
       }
 
       /* ---- keymode: subtle accent chip (rare/transient) ---- */
@@ -167,7 +157,6 @@
 
       /* ---- right cluster: one shared flat strip, thin separators ---- */
       #custom-mail,
-      #custom-power-profile,
       #battery,
       #cpu,
       #tray,

@@ -54,9 +54,9 @@ let
 
   focus-binds  = lib.mapAttrsToList (k: d: "${mod},${k},focusdir,${d}") dirForKey;
   move-binds   = lib.mapAttrsToList (k: d: "${mod}+SHIFT,${k},exchange_client,${d}") dirForKey;
-  ws-view      = lib.mapAttrsToList (k: t: "${mod},${k},view,${t},0") wsForKey;
+  ws-view      = lib.mapAttrsToList (k: t: "${mod},${k},view,${t},1") wsForKey;
   ws-move      = lib.mapAttrsToList (k: t: "${mod}+SHIFT,${k},tagsilent,${t}") wsForKey;
-  ws-move-view = lib.mapAttrsToList (k: t: "${mod}+ALT,${k},tag,${t},0") wsForKey;
+  ws-move-view = lib.mapAttrsToList (k: t: "${mod}+ALT,${k},tag,${t},1") wsForKey;
 
   start-binds  = map (a: "${toMango a.start-key},spawn_shell,${spawnTerm a}") default-apps;
   toggle-binds = map (a: "${mod},${a.toggle-key},toggle_named_scratchpad,${a.title},none,${spawnTerm a}") scratch-apps;
@@ -87,6 +87,16 @@ let
     "${mod}+Shift,bracketright,exchange_stack_client,next"
     "${mod}+Shift,bracketleft,exchange_stack_client,prev"
 
+    # monitors
+    "${mod}+CTRL,l,tagmon,right,1"
+    "${mod}+CTRL,h,tagmon,left,1"
+    "${mod}+CTRL,k,tagmon,up,1"
+    "${mod}+CTRL,j,tagmon,down,1"
+    "${mod}+ALT,l,focusmon,right"
+    "${mod}+ALT,h,focusmon,left"
+    "${mod}+ALT,k,focusmon,up"
+    "${mod}+ALT,j,focusmon,down"
+
 
     # sound bites
     "${mod},4,spawn,play ${private-data}/media/eagle.ogg"
@@ -115,8 +125,8 @@ let
     "NONE,XF86AudioPause,spawn,playerctl play-pause"
     "NONE,XF86AudioNext,spawn,playerctl next"
     "NONE,XF86AudioPrev,spawn,playerctl previous"
-    "${mod},bracketright,spawn,playerctl next"
-    "${mod},bracketleft,spawn,playerctl previous"
+    "${mod},braceright,spawn,playerctl next"
+    "${mod},braceleft,spawn,playerctl previous"
     "${mod},equal,spawn,playerctl play-pause"
   ];
 
@@ -287,6 +297,9 @@ in
 
       cursor_hide_timeout = 5;
       scratchpad_cross_monitor = 1;
+      single_scratchpad = 1;
+      focus_cross_tag = 1;
+      focus_cross_monitor = 1;
       focus_on_activate = 0;
       no_border_when_single = 1;
 
