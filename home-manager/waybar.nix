@@ -118,7 +118,7 @@
 
       /* glassy flat bar: semi-transparent so mango layer blur shows through */
       window#waybar {
-        background: alpha(@base00, 0.8);
+        background: alpha(@base01, 0.8);
         color: @base05;
       }
 
