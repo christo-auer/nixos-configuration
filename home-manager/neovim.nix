@@ -389,6 +389,7 @@
 
       };
 
+      jj.enable = true; 
 
 
       notify.enable = true;

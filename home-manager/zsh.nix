@@ -1,10 +1,12 @@
 { config, pkgs, lib, ... } : {
 
   programs.zsh  =
-  let haw-vpn-script =  pkgs.writeScriptBin "haw-vpn" ''
-    #!/usr/bin/env nix-shell
-    #!nix-shell -i zsh -p openfortivpn 
+  let haw-vpn-script =  pkgs.writeScript "haw-vpn" ''
+    #! /usr/bin/env nix-shell
+    #! nix-shell -i zsh -p openfortivpn 
+
     sudo openfortivpn vpn1.haw-landshut.de -u $(pass haw/mail | tail -n1 | cut -d: -f2) -p $(pass haw/mail | head -n1)
+
     ''; in
   {
     enable = true;

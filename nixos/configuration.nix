@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
       let
       openjdk-overlay = (
         final: prev: {
@@ -16,9 +16,9 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   networking.networkmanager.enable = true;
   networking.firewall = {
+          
           checkReversePath = false;
           allowedTCPPorts = [ 53317 ]; # localsend
   };
@@ -110,6 +110,7 @@
           vimAlias = true;
           viAlias = true;
   };
+
 
   environment.systemPackages = with pkgs; [
     # bluez

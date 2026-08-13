@@ -57,7 +57,7 @@
 
       input_config.mappings = {
         "; i" = ["cmd hintshare feh"];
-        "M-a" = ["pipe null md ${pipe-through-opencode} summary the article from {url}" ];
+        "M-a" = ["pipe null md ${pipe-through-opencode} summarize the article from {url}" ];
         "A" = ["pipe md md ${pipe-through-opencode}" ];
         "a" = ["cmd pipe md md ${pipe-through-opencode}"];
         "Z" = ["cmd pipe html null neomutt -e \"set content_type=text/html\" -s \"{title}\" -- "] ;

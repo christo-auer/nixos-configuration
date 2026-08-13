@@ -26,11 +26,11 @@
         pname = "waybar";
         version = "git";
         src = pkgs.fetchFromGitHub {
-        owner = "Alexays";
-        repo = "Waybar";
-        rev = "d44a27af1023b5c68f6f61435ba550bf03f69938";  
-        hash = "sha256-qquPn4ibBnc7gA4peGgseP+lKGRq58UPxsMTSrdUT8Q=";
-        };
+          owner = "Alexays";
+          repo = "Waybar";
+          rev = "084d87401d0a91182c16aa7e5f674a7dde767185";
+          hash = "sha256-POvwObPOp6O14n6KYWNLp2Y3paunA5f8U1NCaodNFcc=";
+        };       
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dmango=true" "-Dwwan=disabled" ];
         doInstallCheck = false;
         });

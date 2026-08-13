@@ -65,10 +65,6 @@
   outputs = { private-config-data, nixpkgs, eilmeldung, home-manager, stylix, nixvim, nur, nix-flatpak, mcp-servers-nix, claude-desktop, tuxedo-nixos, mango, ... }:
     let
       system = "x86_64-linux";
-      # pkgs = import nixpkgs {
-      #   inherit system;
-      #   overlays = [ eilmeldung.overlays.default ];
-      # };
       private-values = import (private-config-data + "/values.nix");
     in {
 

@@ -144,9 +144,9 @@ let
     eval $@
   '';
 
+  
   resize-and-center = pkgs.writeScript "resize-and-center.sh" ''
-    #! /usr/bin/env nix-shell
-    #! nix-shell -i zsh -p jq
+    #! /usr/bin/env zsh
 
     monitor=$(mmsg get last_open_surface | jq -r .monitor)
 
@@ -173,6 +173,8 @@ in
   };
   services.swaync.enable = true;
   services.way-displays.enable = true;
+
+  home.packages = [pkgs.jq];
 
   wayland.windowManager.mango = {
     enable = true;

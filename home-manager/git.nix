@@ -1,4 +1,4 @@
-{ private-values, private-data, ... } : {
+{ pkgs, lib, private-values, private-data, ... } : {
 
   home.file.".config/pass-git-helper" = {
     source = "${private-data}/pass-git-helper";
@@ -32,6 +32,27 @@
 
 
 
+
+
+  };
+
+  programs.jujutsu = {
+
+    enable = true;
+     
+    settings = {
+
+      user.name = "${private-values.git.name}";
+      ui = {
+        editor = "${lib.getExe pkgs.neovim}";
+        default-command = "log";
+      };
+
+      aliases = {
+        init = ["git" "init"];
+      };
+
+    };
 
 
   };

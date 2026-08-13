@@ -32,7 +32,8 @@ in {
     hunspell hunspellDicts.de-de hunspellDicts.en-us
     hyphen hyphenDicts.de-de hyphenDicts.en-us
     imagemagick
-    inkscape
+    (inkscape-with-extensions.override {
+      inkscapeExtensions = [inkscape-extensions.hexmap]; })
     isync
     jdt-language-server
     libreoffice-fresh
@@ -66,7 +67,7 @@ in {
     vlc
     w3m
     way-displays
-    wf-recorder
+    # wf-recorder
     wl-clipboard
     wl-mirror
     zathura

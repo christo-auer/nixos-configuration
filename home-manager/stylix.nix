@@ -73,6 +73,33 @@
 
   };
 
+  # services.wpaperd = {
+  #     enable = true;
+  #     package = pkgs.wpaperd.overrideAttrs (oldAttrs: rec {
+  #         version = "1.3.0";
+  #         name = "${oldAttrs.pname}-${version}";
+  #
+  #         src = pkgs.fetchFromGitHub {
+  #         owner = "danyspin97";
+  #         repo = "wpaperd";
+  #         rev = "483225a9c6ad4f9bbf9104f958eafee9c47d4612";
+  #         hash = "sha256-h9ksTGnAYg98TYguQXjjDkCO/EO2eeWZUJzOw7FuEF8=";
+  #         }; 
+  #
+  #         cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+  #           inherit src;
+  #           hash = "sha256-UeF5zSYXM3ERmaATKEHUMpOdhhI9FDqs4uRiDCNq38k=";
+  #         };
+  #
+  #         });
+  #
+  #     settings = {
+  #       default.path = "${config.home.homeDirectory}/Pictures/wallpapers";
+  #
+  #     };
+  #
+  #   };
+  #
   services.awww.enable = true;
 
   systemd.user.services.awww-cycle-wallpaper =
