@@ -1,7 +1,7 @@
 { pkgs, lib, private-values, ... } : 
 {
   accounts.email.accounts.private = {
-    passwordCommand = "${lib.meta.getExe pkgs.pass} private/mail";
+    passwordCommand = "${lib.meta.getExe pkgs.pass} show private/www.strato.de/christopher";
 
     smtp.tls.useStartTls = true;
     maildir = {

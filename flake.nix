@@ -72,9 +72,9 @@
         pkgs = nixpkgs.legacyPackages.${system};
 
         modules = [ 
-           ({...}: {
-             nixpkgs.overlays = [ eilmeldung.overlays.default ];
-           })
+           # ({...}: {
+           #   nixpkgs.overlays = [ eilmeldung.overlays.default ];
+           # })
            nix-flatpak.homeManagerModules.nix-flatpak
            stylix.homeModules.stylix
            nixvim.homeModules.nixvim

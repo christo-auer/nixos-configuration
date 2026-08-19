@@ -11,7 +11,7 @@
       curl -u $1:$2 -n imaps://$3 -X 'STATUS INBOX (UNSEEN)' --silent | tail -n 1 
     }
 
-    private=$(query_unread ${mail-config.private.config.userName} $(pass private/mail | head -n1) ${mail-config.private.config.imap.host} | grep 'STATUS INBOX' | sed -e 's/\* STATUS INBOX (UNSEEN \(.*\))/\1/; s/\r//g')
+    private=$(query_unread chris $(pass private/mail | head -n1) ${mail-config.private.config.imap.host} | grep 'STATUS INBOX' | sed -e 's/\* STATUS INBOX (UNSEEN \(.*\))/\1/; s/\r//g')
 
     haw=$(query_unread ${mail-config.haw.config.userName} $(pass haw/mail | head -n1) ${mail-config.haw.config.imap.host} | grep 'STATUS INBOX' | sed -e 's/\* STATUS INBOX (UNSEEN \([0-9]\+\)\w*)/\1/; s/\r//g; s/ //g')
 

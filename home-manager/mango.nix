@@ -257,7 +257,7 @@ in
       drag_lock                 = 1;
       button_map                = 0;
       trackpad_natural_scrolling = 1;
-      disable_while_typing      = 1;
+      # disable_while_typing      = 1;
 
       # ---- appearance / gaps (community defaults) ----
       gappih  = 2;

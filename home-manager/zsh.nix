@@ -20,7 +20,7 @@
       haw-vpn="${haw-vpn-script}";
       ls     ="exa";
       nix-edit = "cd ${config.home.homeDirectory}/Documents/workspace/nixos-configuration; nvim flake.nix home-manager/home.nix nixos/configuration.nix";
-      n = "nix-shell -p \${1} --command zsh";
+      n = "nix-shell -I nixpkgs=channel:nixos-unstable -p \${1} --command zsh";
       viture = "way-displays -s DISABLED '!^eDP-1$'; way-displays -s SCALE '!^DP-3$' 1.5; read line; way-displays -d DISABLED '!^eDP-1$'";
       g = "git";
     };

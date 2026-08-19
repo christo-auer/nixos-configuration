@@ -19,6 +19,8 @@
   {
     enable = true;
 
+    package = pkgs.eilmeldung;
+
     settings = {
 
       mouse_support = true;
@@ -37,7 +39,8 @@
         "in articles read title:/Anzeige:|g\\+|heise\\+|heise-Angebot/"
         "tag reviews title:review"
         "refresh"
-        ];
+      ];
+
 
       login_setup = {
         login_type = "direct_password";
@@ -61,7 +64,7 @@
         "A" = ["pipe md md ${pipe-through-opencode}" ];
         "a" = ["cmd pipe md md ${pipe-through-opencode}"];
         "Z" = ["cmd pipe html null neomutt -e \"set content_type=text/html\" -s \"{title}\" -- "] ;
-        "y" = ["confirm in articles read all" "nextunread"];
+        "y" = ["in feeds read" "nextunread"];
 
 
       };
