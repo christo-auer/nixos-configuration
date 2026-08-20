@@ -25,6 +25,11 @@
 
       mouse_support = true;
 
+      feed_list_focused_width = "20%";
+      article_list_focused_width = "80%";
+      article_list_focused_height = "50%";
+      article_content_focused_height = "80%";
+
       feed_list = [
         "query: \"Marked\" marked"
         "query: \"Reviews\" #reviews"
